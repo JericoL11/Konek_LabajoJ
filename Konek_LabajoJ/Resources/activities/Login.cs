@@ -69,7 +69,12 @@ namespace Konek_LabajoJ.Resources.activities
                 //to limit the multiple task 
                 intent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.SingleTop);
                 StartActivity(intent);
-       
+
+                //null
+                txt_email.Text = string.Empty;
+                txt_password.Text = string.Empty;
+                txt_email.RequestFocus();
+
             };
 
             taskCL.Failure += (failure, args) =>
