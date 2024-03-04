@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--navbar-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="#ff9130"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <!--content-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/mainlogo"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:src="@drawable/mainlogo1"
+                android:layout_centerInParent="false"/>
+
+            <ImageView
+                android:id="@+id/post_profile"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:src="@drawable/newspaper"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="11.0dp"/>
+
+            <!-- <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FEED"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"/>-->
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+  <!--text post-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:elevation="4dp">
+
+        <ImageView
+            android:id="@+id/post_profile_top"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:src="@drawable/profilePic"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20.0dp" />
+
+        <!--content-->
+        <RelativeLayout
+            android:layout_width="240dp"
+            android:layout_height="36dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/round_edges">
+      
+
+            <TextView
+                android:text="What's on your mind?"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+             <ImageView
+            android:id="@+id/gallery"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:src="@drawable/image"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20.0dp"/>
+
+    </RelativeLayout>
+
+       <!--body-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:layout_marginTop="20dp">
+
+        <ImageView
+            android:id="@+id/post_profile"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:src="@drawable/profilePic"
+            android:background="@drawable/circle_shape"
+            android:layout_marginLeft="40.0dp"/>
+
+        <TextView
+            android:text="Jerico Labajo"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:paddingLeft="60dp"
+            android:textStyle="bold" 
+            android:layout_marginLeft="25.0dp"/>
+
+        <TextView
+            android:text="Making all things possible!."
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:paddingLeft="60dp"
+            android:layout_marginTop="19.5dp"
+            android:layout_marginLeft="25.0dp" />
+
+    
+
+        <!-- content-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+           <ImageView
+                android:id="@+id/post1"
+                android:layout_width="match_parent"
+                android:layout_height="520px"
+                android:src="@drawable/post1"/>
+        
+            <!--Reactions>-->
+            <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:orientation="horizontal"
+                 android:layout_marginLeft="40.0dp">
+                <ImageView
+                    android:id="@+id/react_love"
+                    android:layout_width="70px"
+                    android:layout_height="70px"
+                    android:layout_marginLeft="0.0dp"
+                    android:src="@drawable/love"/>
+
+                <ImageView
+                    android:id="@+id/react_comment"
+                    android:layout_width="70px"
+                    android:layout_height="70px"
+                    android:src="@drawable/comment"
+                    android:layout_marginLeft="4.5dp" />
+
+                <ImageView
+                    android:id="@+id/react_share"
+                    android:layout_width="70px"
+                    android:layout_height="70px"
+                    android:src="@drawable/share"
+                    android:layout_marginLeft="4.5dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+             
+        
+        <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_footer"
+        android:background="#ff9130"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentBottom="true">
+
+    <!--footer-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff9130"
+        android:paddingTop="30px">
+
+        <!--content-->
+        <ImageView
+            android:id="@+id/camera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/camera"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="14.5dp"/>
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/video"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/reel"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14.5dp"/>
+        </RelativeLayout>
+     
+            </androidx.appcompat.widget.Toolbar>
+    </RelativeLayout>
+ 
+</LinearLayout>
+

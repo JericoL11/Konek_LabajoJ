@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537869746729",
+    "project_id": "konek-labajoj-6efc5",
+    "storage_bucket": "konek-labajoj-6efc5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537869746729:android:27950e7e5c90adfabb5238",
+        "android_client_info": {
+          "package_name": "com.companyname.konek_labajoj"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSXTtQHh61eIRJd_bJ8S37k8nGmFMecRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
