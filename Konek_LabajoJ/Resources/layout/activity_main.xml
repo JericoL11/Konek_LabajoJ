@@ -110,7 +110,7 @@
             android:scrollbars="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:paddingBottom="16dp"/>
+            android:paddingBottom="50dp"/>
           
         
         <androidx.appcompat.widget.Toolbar

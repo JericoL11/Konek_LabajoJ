@@ -63,7 +63,7 @@
            
 
             <ImageView
-                android:src="@android:drawable/ic_menu_gallery"
+                android:src="@drawable/love"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:id="@+id/imageViewLike"
@@ -71,7 +71,7 @@
                 android:layout_alignParentStart="true"/>
                
             <ImageView
-                android:src="@android:drawable/ic_menu_gallery"
+                android:src="@drawable/comment"
                 android:layout_width="26dp"
                 android:layout_height="26dp"
                 android:id="@+id/imageViewComment"

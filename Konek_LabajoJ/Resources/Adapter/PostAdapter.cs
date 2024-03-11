@@ -4,6 +4,7 @@ using Android.Widget;
 using System;
 using Konek_LabajoJ.Resources.DataModels;
 using RecyclerView = AndroidX.RecyclerView.Widget.RecyclerView;
+using System.Collections.Generic;
 
 namespace Konek_LabajoJ.Resources.Adapter
 {
@@ -43,11 +44,11 @@ namespace Konek_LabajoJ.Resources.Adapter
 
             holder.userNameTextView.Text = item.Username;
             holder.postBodyTextView.Text = item.Description;
-            holder.likeCountTextView.Text = item.LikeCount.ToStrint() + "Likes";
+            holder.likeCountTextView.Text = item.LikeCount.ToString() + "Likes";
 
         }
 
-        public override int ItemCount => items.Length;
+        public override int ItemCount => items.Count;
 
         void OnClick(PostAdapterClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(PostAdapterClickEventArgs args) => ItemLongClick?.Invoke(this, args);
@@ -74,8 +75,8 @@ namespace Konek_LabajoJ.Resources.Adapter
             userNameTextView = (TextView)itemView.FindViewById(Resource.Id.textViewUserName);
             postBodyTextView = (TextView)itemView.FindViewById(Resource.Id.textViewPostBody);
             likeCountTextView = (TextView)itemView.FindViewById(Resource.Id.textViewUserName);
-            postImageView = (TextView)itemView.FindViewById(Resource.Id.imageViewPicture);
-            likeImageView = (TextView)itemView.FindViewById(Resource.Id.imageViewLike);
+            postImageView = (ImageView)itemView.FindViewById(Resource.Id.imageViewPicture);
+            likeImageView = (ImageView)itemView.FindViewById(Resource.Id.imageViewLike);
 
 
 

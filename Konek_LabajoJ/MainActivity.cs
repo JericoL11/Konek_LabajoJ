@@ -5,11 +5,17 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.RecyclerView.Widget;
 using Firebase.Auth;
 using Konek_LabajoJ.Resources.activities;
+using Konek_LabajoJ.Resources.Adapter;
+using Konek_LabajoJ.Resources.DataModels;
 using Konek_LabajoJ.Resources.Helper;
+using System;
+using System.Collections.Generic;
 using AlertDialog = Android.App.AlertDialog;
 using ToolBar = AndroidX.AppCompat.Widget.Toolbar;
+using RecyclerView = AndroidX.RecyclerView.Widget.RecyclerView;
 
 namespace Konek_LabajoJ
 {
@@ -33,8 +39,54 @@ namespace Konek_LabajoJ
 
             mAuth = appDataHelper.GetFirebaseAuth();
             toolbar = FindViewById<ToolBar>(Resource.Id.toolbar);
+
+            //get from mainlayout
+            postRecyclerView = FindViewById<RecyclerView>(Resource.Id.postRecyclerView);
+
+            CreateData();
+            SetUpRecyclerView();
             SetSupportActionBar(toolbar);
 
+
+        }
+
+         void SetUpRecyclerView()
+        {
+            postRecyclerView.SetLayoutManager(new AndroidX.RecyclerView.Widget.LinearLayoutManager(postRecyclerView.Context));
+
+            postAdapter = new PostAdapter(listofPost);
+            postRecyclerView.SetAdapter(postAdapter);
+
+        }
+
+         void CreateData()
+        {
+            listofPost.Add(new Post
+            {
+                Username = "Jerico Labajo",
+                Description = "Hello Xamarin",
+                LikeCount = 14
+
+            });
+
+            listofPost.Add(new Post
+            {
+                Username = "Jane Blns",
+                Description = "Making all the this beauty",
+                LikeCount = 25
+
+            });
+
+            listofPost.Add(new Post
+            {
+                Username = "Venus Faith",
+                Description = "Hello, From the universe!",
+                LikeCount = 95
+
+            });
+
+
+          
 
         }
 
