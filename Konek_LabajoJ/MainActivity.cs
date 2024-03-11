@@ -9,7 +9,7 @@ using Firebase.Auth;
 using Konek_LabajoJ.Resources.activities;
 using Konek_LabajoJ.Resources.Helper;
 using AlertDialog = Android.App.AlertDialog;
-using ToolBar = AndroidX.AppCompat.Widget.Toolbar; 
+using ToolBar = AndroidX.AppCompat.Widget.Toolbar;
 
 namespace Konek_LabajoJ
 {
@@ -20,6 +20,10 @@ namespace Konek_LabajoJ
         ToolBar toolbar;
         AppDataHelper appDataHelper = new AppDataHelper();
         FirebaseAuth mAuth;
+        RecyclerView postRecyclerView;
+        PostAdapter postAdapter;
+        List<Post> listofPost = new List<Post>();
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -69,7 +73,7 @@ namespace Konek_LabajoJ
                 {
                     return;
                 });
-                
+
                 Dialog dialog = builder.Show();
                 dialog.Show();
             }

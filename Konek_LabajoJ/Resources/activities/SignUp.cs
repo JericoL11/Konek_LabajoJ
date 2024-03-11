@@ -30,7 +30,7 @@ namespace Konek_LabajoJ.Resources.activities
         FirebaseAuth mAuth;
         TaskCompletionListeners taskCL = new TaskCompletionListeners();
 
-      
+
         AppDataHelper AppDataHelpers = new AppDataHelper();
 
         protected override void OnCreate(Bundle savedInstanceState)

@@ -63,6 +63,8 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\activities\Login.cs" />
     <Compile Include="Resources\activities\SignUp.cs" />
+    <Compile Include="Resources\Adapter\PostAdapter.cs" />
+    <Compile Include="Resources\DataModels\Post.cs" />
     <Compile Include="Resources\EventListeners\TaskCompletionListeners.cs" />
     <Compile Include="Resources\Helper\AppDataHelper.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -106,7 +108,16 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Android.Support.v4">
+      <Version>23.4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <Version>23.4.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.5" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4">
+      <Version>1.0.0.23</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Firebase.Auth">
       <Version>122.2.0.1</Version>
     </PackageReference>
@@ -216,6 +227,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\feed_menu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\_post.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
