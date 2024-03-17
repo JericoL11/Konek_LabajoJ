@@ -14,7 +14,7 @@ using System.Text;
 
 namespace Konek_LabajoJ.Resources.activities
 {
-    [Activity(Label = "Login", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "Konek", Theme = "@style/AppTheme", MainLauncher = true)]
     public class Login : Activity
     {
         //widgets

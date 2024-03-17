@@ -44,7 +44,7 @@ namespace Konek_LabajoJ.Resources.Adapter
 
             holder.userNameTextView.Text = item.Username;
             holder.postBodyTextView.Text = item.Description;
-            holder.likeCountTextView.Text = item.LikeCount.ToString() + "Likes";
+            holder.likeCountTextView.Text = item.LikeCount.ToString() + " Likes";
 
         }
 
@@ -74,7 +74,7 @@ namespace Konek_LabajoJ.Resources.Adapter
             //referencing the _post layout
             userNameTextView = (TextView)itemView.FindViewById(Resource.Id.textViewUserName);
             postBodyTextView = (TextView)itemView.FindViewById(Resource.Id.textViewPostBody);
-            likeCountTextView = (TextView)itemView.FindViewById(Resource.Id.textViewUserName);
+            likeCountTextView = (TextView)itemView.FindViewById(Resource.Id.textViewLike);
             postImageView = (ImageView)itemView.FindViewById(Resource.Id.imageViewPicture);
             likeImageView = (ImageView)itemView.FindViewById(Resource.Id.imageViewLike);
 
