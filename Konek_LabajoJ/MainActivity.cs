@@ -28,6 +28,8 @@ namespace Konek_LabajoJ
         FirebaseAuth mAuth;
         RecyclerView postRecyclerView;
         PostAdapter postAdapter;
+        RelativeLayout RL_createPost;
+
         List<Post> listofPost = new List<Post>();
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -39,9 +41,12 @@ namespace Konek_LabajoJ
 
             mAuth = appDataHelper.GetFirebaseAuth();
             toolbar = FindViewById<ToolBar>(Resource.Id.toolbar);
+            RL_createPost = FindViewById<RelativeLayout>(Resource.Id.RL_createPost);
 
             //get from mainlayout
             postRecyclerView = FindViewById<RecyclerView>(Resource.Id.postRecyclerView);
+            RL_createPost.Click += RL_createPost_Click;
+
 
             CreateData();
             SetUpRecyclerView();
@@ -50,7 +55,16 @@ namespace Konek_LabajoJ
 
         }
 
-         void SetUpRecyclerView()
+        private void RL_createPost_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(createPost));
+
+            //to limit the multiple task 
+            intent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.SingleTop);
+            StartActivity(intent);
+        }
+
+        void SetUpRecyclerView()
         {
             postRecyclerView.SetLayoutManager(new AndroidX.RecyclerView.Widget.LinearLayoutManager(postRecyclerView.Context));
 
@@ -90,7 +104,7 @@ namespace Konek_LabajoJ
 
         }
 
-        //inlater
+        //inflater
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.feed_menu, menu);
