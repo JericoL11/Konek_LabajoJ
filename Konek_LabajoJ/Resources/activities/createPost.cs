@@ -1,11 +1,17 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Content.PM;
+using Android.Hardware.Camera2.Params;
 using Android.OS;
+using Android.Renderscripts;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -34,8 +40,42 @@ namespace Konek_LabajoJ.Resources.activities
             createTextpost = FindViewById<EditText>(Resource.Id.createTextpost);
 
             createpostCancel.Click += CreatepostCancel_Click1;
-
+            createPostimage.Click += CreatePostimage_Click ;
         }
+
+        private void CreatePostimage_Click(object sender, EventArgs e)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.SetMessage("Change Photo");
+            builder.SetPositiveButton("Take Photo", (sender, e) =>{
+           //     takePhoto();
+            });
+
+            builder.SetNegativeButton("Upload Photo", (sender, e) => {
+                //     uploadPhoto();
+            });
+        }
+
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        //DARIA NAKA 10 MINS
+    /*    async void takePhoto()
+        {
+            await CrossMedia.Current.Initialize();
+            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions){
+
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+                CompressionQuality = 20,
+                Directory = "Sample",
+                Name = Generate
+            });
+         }*/
+
 
         private void CreatepostCancel_Click1(object sender, EventArgs e)
         {
