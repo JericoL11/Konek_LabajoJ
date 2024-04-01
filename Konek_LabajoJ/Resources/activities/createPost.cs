@@ -24,7 +24,7 @@ using Bitmap = Android.Graphics.Bitmap;
 namespace Konek_LabajoJ.Resources.activities
 {
 
-    [Activity(Label = "createPost", Theme = "@style/AppTheme", MainLauncher = false)]
+    [Activity(Label = "createPost")]
 
 
     public class createPost : AppCompatActivity
@@ -43,10 +43,11 @@ namespace Konek_LabajoJ.Resources.activities
                Manifest.Permission.Camera
     };
 
-
+      /*  CameraClass cc = new CameraClass();*/      
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
             //referencing
             SetContentView(Resource.Layout._createpost);
@@ -68,14 +69,14 @@ namespace Konek_LabajoJ.Resources.activities
         private void CreatePostimage_Click(object sender, EventArgs e)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
             builder.SetMessage("Change Photo");
+
             builder.SetPositiveButton("Take Photo", (sender, e) =>{
-           //     takePhoto();
+                takePhoto();
             });
 
             builder.SetNegativeButton("Upload Photo", (sender, e) => {
-                //     uploadPhoto();  
+                selectPhoto();  
             });
 
             Dialog dialog = builder.Create();
@@ -83,7 +84,7 @@ namespace Konek_LabajoJ.Resources.activities
         }
 
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -92,6 +93,7 @@ namespace Konek_LabajoJ.Resources.activities
         async void takePhoto()
         {
            await CrossMedia.Current.Initialize();
+
             var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
             {
                 PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
@@ -109,20 +111,40 @@ namespace Konek_LabajoJ.Resources.activities
             Bitmap bitmap = BitmapFactory.DecodeByteArray(imageArray, 0, imageArray.Length);
             createPostimage.SetImageBitmap(bitmap);
         }
-         //18 mins na DIRI NAKA
 
-    /*    async void selectPhoto()
+
+       async void selectPhoto()
       {
             await CrossMedia.Current.Initialize();
-            var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.
+
+            if (!CrossMedia.Current.IsTakePhotoSupported)
+            {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.SetMessage("Photo not supported.");
+
+                builder.SetPositiveButton("OK", (sender, e) => {
+                    return;
+                });
+            }
+
+            var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
             {
                 PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
                 CompressionQuality = 20,
 
             });
 
+            if (file == null)
+            {
+                return;
+            }
 
-        }*/
+            byte[] imageArray = System.IO.File.ReadAllBytes(file.Path);
+            Bitmap bitmap = BitmapFactory.DecodeByteArray(imageArray, 0, imageArray.Length);
+            createPostimage.SetImageBitmap(bitmap);
+
+
+        }
 
             private void CreatepostCancel_Click1(object sender, EventArgs e)
         {

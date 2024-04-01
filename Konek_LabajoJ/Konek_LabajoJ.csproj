@@ -112,9 +112,6 @@
     <PackageReference Include="Xam.Plugin.Media">
       <Version>6.0.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Android.Support.v4">
-      <Version>23.4.0.1</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
       <Version>23.4.0.1</Version>
     </PackageReference>
@@ -240,9 +237,8 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\drawable\Createpost.png" />
-    <Content Include="Resources\drawable\left-arrow.png" />
-    <AndroidResource Include="Resources\file_paths\file_paths.xml" />
+    <Content Include="Resources\drawable\imagePlaceholder.png" />
+    <Content Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

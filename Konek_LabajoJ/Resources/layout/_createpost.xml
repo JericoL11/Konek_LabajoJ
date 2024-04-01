@@ -40,7 +40,7 @@
             android:layout_marginTop="50dp">
    
             <ImageView
-            android:src="@android:color/darker_gray"
+           android:background="@drawable/image"
             android:layout_width="match_parent"
             android:layout_height="600px"
             android:id="@+id/createPostimage" />
