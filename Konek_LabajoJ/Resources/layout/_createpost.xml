@@ -33,19 +33,22 @@
           
     </androidx.appcompat.widget.Toolbar>
 
-     <LinearLayout
+     <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginTop="50dp">
+            android:layout_height="215dp"
+            android:padding="16dp"
+           android:background="@drawable/round_edges">
    
             <ImageView
-           android:background="@drawable/image"
+            android:background="@drawable/image"
             android:layout_width="match_parent"
-            android:layout_height="600px"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerCrop"
             android:id="@+id/createPostimage" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
       <RelativeLayout
         android:layout_width="match_parent"
@@ -64,7 +67,7 @@
 
         
     </RelativeLayout>
-   >
+   
   
           <Button
             android:text="Submit"
