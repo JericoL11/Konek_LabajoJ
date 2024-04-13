@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using Firebase.Storage;
+using Konek_LabajoJ.Resources.EventListeners;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -34,6 +36,9 @@ namespace Konek_LabajoJ.Resources.activities
         Button createpostSubmit;
         EditText createTextpost;
         TextView createpostCancel;
+        TaskCompletionListeners listener = new TaskCompletionListeners();
+
+        byte[] fileBytes;
 
 
         readonly string[] permissionGroup =
@@ -60,11 +65,57 @@ namespace Konek_LabajoJ.Resources.activities
 
             createpostCancel.Click += CreatepostCancel_Click1;
             createPostimage.Click += CreatePostimage_Click ;
-
+            createpostSubmit.Click += CreatepostSubmit_Click;
 
             //calling the permission method
             RequestPermissions(permissionGroup, 0);
         }
+
+        private void CreatepostSubmit_Click(object sender, EventArgs e)
+        {
+            StorageReference sr;
+
+            if (fileBytes != null)
+            {
+                sr = FirebaseStorage.Instance.GetReference("postImages/*" + generateRandomString(10));
+                sr.PutBytes(fileBytes)
+                    .AddOnSuccessListener(listener)
+                    .AddOnFailureListener(listener);
+
+                listener.Success += (obj, args) =>
+                {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.SetMessage("Image successfully uploaded");
+
+                    builder.SetPositiveButton("okay", (sender, e) => {
+
+                        StartActivity(typeof(MainActivity));
+                        return;
+                    });
+
+                    Dialog dialog = builder.Create();
+                    dialog.Show();
+                };
+
+                listener.Failure += (obj, args) =>
+                {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.SetMessage("Upload failed due to " + args.Cause);
+
+                    builder.SetPositiveButton("okay", (sender, e) => {
+
+                        StartActivity(typeof(MainActivity));
+                        return;
+                    });
+
+                    Dialog dialog = builder.Create();
+                    dialog.Show();
+                };
+            }
+        }
+
 
         private void CreatePostimage_Click(object sender, EventArgs e)
         {
@@ -108,6 +159,7 @@ namespace Konek_LabajoJ.Resources.activities
             }
 
             byte[] imageArray = System.IO.File.ReadAllBytes(file.Path);
+            fileBytes = imageArray;
             Bitmap bitmap = BitmapFactory.DecodeByteArray(imageArray, 0, imageArray.Length);
             createPostimage.SetImageBitmap(bitmap);
         }
@@ -140,6 +192,7 @@ namespace Konek_LabajoJ.Resources.activities
             }
 
             byte[] imageArray = System.IO.File.ReadAllBytes(file.Path);
+            fileBytes = imageArray;
             Bitmap bitmap = BitmapFactory.DecodeByteArray(imageArray, 0, imageArray.Length);
             createPostimage.SetImageBitmap(bitmap);
 
